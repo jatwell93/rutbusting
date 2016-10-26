@@ -1,3 +1,125 @@
-// Place all the styles related to the Pages controller here.
-// They will automatically be included in application.css.
-// You can use Sass (SCSS) here: http://sass-lang.com/
+.btn.btn-large, .button.btn-large, button.btn-large {
+    font-size: 107%;
+    padding: 0.4em 2.75em;
+}
+.btn.btn-delta, .button.btn-delta, button.btn-delta {
+    background-color: #f95165;
+}
+.btn, .button, button {
+    color: white;
+    background-color: #081c2d;
+    font-family: "Montserrat", "Helvetica Neue", Helvetica, Arial, sans-serif;
+    text-align: center;
+    display: inline-block;
+    margin: .1em 0 1em;
+    padding: 0.5em 1.75em 0.45em;
+    text-decoration: none;
+    width: auto;
+    font-size: 100%;
+    line-height: 1.6;
+    -webkit-border-radius: 4px;
+    -ms-border-radius: 4px;
+    -moz-border-radius: 4px;
+    -o-border-radius: 4px;
+    border-radius: 4px;
+    -webkit-transitio: all 0.25s ease-in;
+    -moz-transition: all 0.25s ease-in;
+    -ms-transition: all 0.25s ease-in;
+    -o-transition: all 0.25s ease-in;
+    transition: all 0.25s ease-in;
+}
+section * {
+    z-index: 3;
+}
+a {
+    color: #f95165;
+    text-decoration: none;
+    line-height: inherit;
+    -webkit-transitio: color 0.6s ease-in;
+    -moz-transition: color 0.6s ease-in;
+    -ms-transition: color 0.6s ease-in;
+    -o-transition: color 0.6s ease-in;
+    transition: color 0.6s ease-in;
+}
+a {
+    background: 0 0;
+}
+*, *:before, *:after {
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+}
+user agent stylesheet
+a:-webkit-any-link {
+    color: -webkit-link;
+    text-decoration: underline;
+    cursor: auto;
+}
+Inherited from section.sect-banner.center-all.bg-alpha
+.center-all {
+    text-align: center;
+    margin: 0 auto;
+    display: block;
+    float: none;
+}
+Inherited from body
+Style Attribute {
+    zoom: 1;
+}
+body {
+    font-size: 100%;
+}
+body {
+    font-family: "Montserrat", "Helvetica Neue", Helvetica, Arial, sans-serif;
+    color: #586b72;
+    background: rgba(255, 255, 255, 0.8);
+    position: relative;
+    overflow-x: hidden;
+    width: 100%;
+    font-weight: 400;
+    font-style: normal;
+    line-height: 1.6;
+    -ms-text-size-adjust: 100%;
+    -webkit-text-size-adjust: 100%;
+    -webkit-font-smoothing: antialiased;
+    text-rendering: optimizeLegibility;
+}
+Inherited from html.js.flexbox.canvas.canvastext.webgl.no-touch.geolocation.postmessage.websqldatabase.indexeddb.hashchange.history.draganddrop.websockets.rgba.hsla.multiplebgs.backgroundsize.borderimage.borderradius.boxshadow.textshadow.opacity.cssanimations.csscolumns.cssgradients.cssreflections.csstransforms.csstransforms3d.csstransitions.fontface.generatedcontent.video.audio.localstorage.sessionstorage.webworkers.applicationcache.svg.inlinesvg.smil.svgclippaths.wf-montserrat-n4-active.wf-notoserif-n4-active.wf-montserrat-n7-active.wf-active
+html {
+    font-size: 100%;
+    overflow-y: scroll;
+    overflow-x: hidden;
+    width: 100%;
+    -webkit-text-size-adjust: 100%;
+}
+html {
+    font-family: sans-serif;
+    -ms-text-size-adjust: 100%;
+    -webkit-text-size-adjust: 100%;
+}
+Pseudo ::before element
+*, *:before, *:after {
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+}
+Pseudo ::after element
+*, *:before, *:after {
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+}
+Pseudo ::selection element
+*::selection {
+    background: #081c2d;
+    color: white;
+    text-shadow: none;
+}
+margin1.712
+‒border‒
+‒padding6.848
+47.080135.762 × 26.99247.080
+6.848‒
+‒‒
+17.120
+
