@@ -15,5 +15,6 @@
   <%= @location.website %>
 </p>
 
+<%= link_to 'Leave a Review', new_location_review_path(@location), class:"btn btn-success"%>
 <%= link_to 'Edit', edit_location_path(@location), class:"btn btn-warning" %> 
 <%= link_to 'Back', locations_path, class:"btn btn-primary" %>
