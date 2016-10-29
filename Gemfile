@@ -11,10 +11,11 @@ gem 'coffee-rails', '~> 4.1.0'
 gem 'jquery-rails'
 gem 'turbolinks'
 gem 'jbuilder', '~> 2.0'
-gem "fog-aws"
+gem "fog"
 gem "figaro"
 gem "mini_magick"
 gem 'devise'
+gem 'jquery-raty-rails', github: 'bmc/jquery-raty-rails'
 gem 'sdoc', '~> 0.4.0', group: :doc
 
 group :development, :test do
