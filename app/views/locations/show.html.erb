@@ -6,6 +6,9 @@
       <%= @location.name %>
     </h2>
     
+    <div class="star-rating" data-score=<%= @avg_rating %>></div> 
+    <p><%= "#{@reviews.length} reviews" %></p>
+    
     <p>
       <strong>Address:</strong>
       <%= @location.address %>
@@ -26,13 +29,21 @@
         <%= link_to 'Leave a Review', new_location_review_path(@location), class:"btn btn-success"%>
       </div>
     <% else %>
-      <% @reviews.each do |r| %>
-        <div class="well">
-          <div class="star-rating"></div>  
-          <p><%= r.rating %></p>
-          <p><%= r.comment %></p>
-        </div>
-      <% end %>
+      <table class="table table-hover table-responsive">  
+        <tbody>
+          <% @reviews.each do |r| %>
+            <tr>
+              <td>
+                <div class="star-rating" data-score=<%= r.rating %>></div>  
+                <p><%= h(r.comment).gsub(/\n/, '<br/>').html_safe %></p>
+                <p>
+                 <span class='quiet'><small>Created: <%= time_ago_in_words(r.created_at)%> ago</small></span>
+               </p>
+              </td>
+            </tr>
+          <% end %>
+        </tbody>
+      </table>
     <% end %>
   </div>
 </div>
@@ -40,6 +51,10 @@
   <%= link_to 'Back', locations_path, class:"btn btn-primary" %>
 <script>
   $('.star-rating').raty({
-    path: 'https://s3.amazonaws.com/rutbustin1/stars/'
+    path: 'https://s3.amazonaws.com/rutbustin1/stars/', 
+    readOnly : true,
+      score: function() {
+        return $(this).attr('data-score');
+      }
   });
 </script>
