@@ -29,16 +29,36 @@
         <%= link_to 'Leave a Review', new_location_review_path(@location), class:"btn btn-success"%>
       </div>
     <% else %>
-      <table class="table table-hover table-responsive">  
+      <table class="table table-hover table-responsive">
+        <thead>
+          <tr>
+            <th class="col-md-3"></th>
+            <th class="col-md-9"></th>
+          </tr>
+        </thead>
+
         <tbody>
-          <% @reviews.each do |r| %>
+          <% @reviews.each do |review| %>
             <tr>
               <td>
-                <div class="star-rating" data-score=<%= r.rating %>></div>  
-                <p><%= h(r.comment).gsub(/\n/, '<br/>').html_safe %></p>
+                <h4>
+                  <%= "#{review.user.first_name.capitalize} #{review.user.last_name.capitalize[0]}." %>
+                </h4>
                 <p>
-                 <span class='quiet'><small>Created: <%= time_ago_in_words(r.created_at)%> ago</small></span>
+                 <span class='quiet'><small>Created: <%= time_ago_in_words(review.created_at)%> ago</small></span><br />
                </p>
+              </td>
+
+              <td>
+                <div class="star-rating" data-score= <%= review.rating %> ></div>
+                <p><%= h(review.comment).gsub(/\n/, '<br/>').html_safe %></p>
+
+                <% if user_signed_in? %>
+                  <% if (review.user == current_user) || (current_user.admin?) %>
+                    <%= link_to "Edit", edit_location_review_path(@location, review) %>
+                    <%= link_to "Delete", location_review_path(@location, review), method: :delete %>
+                  <% end %>
+                <% end %>
               </td>
             </tr>
           <% end %>
