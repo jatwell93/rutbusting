@@ -67,8 +67,10 @@
     <% end %>
   </div>
 </div>
+<% if user_signed_in? %>
   <%= link_to 'Edit', edit_location_path(@location), class:"btn btn-warning" %> 
   <%= link_to 'Back', locations_path, class:"btn btn-primary" %>
+<% end %>  
 <script>
   $('.star-rating').raty({
     path: 'https://s3.amazonaws.com/rutbustin1/stars/', 

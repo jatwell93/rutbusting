@@ -1,7 +1,8 @@
 <%= form_for([@location, @review]) do |f| %>
   <% if @review.errors.any? %>
-    <div id="error_explanation">
-      <h2><%= pluralize(@review.errors.count, "error") %> prohibited this review from being saved:</h2>
+    <div id="error_explanation" class="alert alert-danger alert-dismissable">
+      <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+      <h3><%= pluralize(@review.errors.count, "error") %> prohibited this review from being saved:</h3>
 
       <ul>
       <% @review.errors.full_messages.each do |message| %>
@@ -14,7 +15,7 @@
  <h4>Rating</h4><div id="star-rating"></div>
     <div class="form-group">
       <%= f.label :comment %><br>
-      <%= f.text_area :comment, class:"form-control" %>
+      <%= f.text_area :comment, rows:10, class:"form-control" %>
     </div>
     <div class="form-group">
       <%= f.submit class:"btn btn-success" %>

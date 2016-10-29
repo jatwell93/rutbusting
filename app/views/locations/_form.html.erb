@@ -1,7 +1,8 @@
 <%= form_for(@location, html: { multipart: true }) do |f| %>
   <% if @location.errors.any? %>
-    <div id="error_explanation">
-      <h2><%= pluralize(@location.errors.count, "error") %> prohibited this location from being saved:</h2>
+     <div id="error_explanation" class="alert alert-danger alert-dismissable">
+      <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+      <h3><%= pluralize(@location.errors.count, "error") %> prohibited this location from being saved:</h3>
 
       <ul>
       <% @location.errors.full_messages.each do |message| %>
@@ -12,19 +13,19 @@
   <% end %>
 
   <div class="form-group">
-    <%= f.label :name %><br>
-    <%= f.text_field :name, class:"form-control" %>
+    *<%= f.label :name %><br>
+    <%= f.text_field :name, class:"form-control", placeholder:"Bendigo etc." %>
   </div>
   <div class="form-group">
-    <%= f.label :address %><br>
-    <%= f.text_field :address, class:"form-control" %>
+    *<%= f.label :address %><br>
+    <%= f.text_field :address, class:"form-control", placeholder:"123 Fake St, Melbourne, VIC 3056" %>
   </div>
   <div class="form-group">
     <%= f.label :website %><br>
-    <%= f.text_field :website, class:"form-control" %>
+    <%= f.text_field :website, class:"form-control", placeholder:"www.example.com" %>
   </div>
   <div class="form-group">
-    <%= f.label :image %><br>
+    *<%= f.label :image %><br>
     <%= f.file_field :image, class:"form-control" %>
   </div>
   <div class="actions">
