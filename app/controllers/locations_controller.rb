@@ -1,8 +1,15 @@
 class LocationsController < ApplicationController
   before_action :set_location, only: [:show, :edit, :update, :destroy]
-  before_action :authenticate_user, except: [:index, :show]
-  before_action :check_user, except: [:index, :show]
+  before_action :authenticate_user, except: [:index, :show, :search]
+  before_action :check_user, except: [:index, :show, :search]
 
+  def search
+    if params[:search].present?
+      @locations = Location.search(params[:search])
+    else
+      @locations = Location.all
+    end
+  end
   # GET /locations
   # GET /locations.json
   def index

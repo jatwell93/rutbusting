@@ -12,6 +12,7 @@ gem 'jquery-rails'
 gem 'turbolinks'
 gem 'jbuilder', '~> 2.0'
 gem "fog"
+gem 'searchkick'
 gem "figaro"
 gem "mini_magick"
 gem 'devise'
