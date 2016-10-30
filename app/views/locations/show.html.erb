@@ -17,9 +17,18 @@
     <p>
       <strong>Website:</strong>
       <%= @location.website %>
-    </p>    
-    
-      <%= link_to 'Leave a Review', new_location_review_path(@location), class:"btn btn-success"%>
+    </p> 
+    </br>
+    <iframe
+      width="300"
+      height="300"
+      frameborder="0" style="border:0"
+      src="https://www.google.com/maps/embed/v1/place?key=AIzaSyBJg0HiO2KtvExTuiWB6rKhmUUsHXFk6dY
+        &q=<%= @location.address.parameterize %>&zoom=11">
+    </iframe>
+    </br>
+    </br>
+    <%= link_to 'Leave a Review', new_location_review_path(@location), class:"btn btn-success"%>
   </div>
 </br>
   <div class="col-md-4">

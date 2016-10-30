@@ -9,6 +9,7 @@
 <table class="table table-hover table-responsive">
   <thead>
     <tr>
+      <th></th>
       <th>Name</th>
       <th>Address</th>
       <th>Website</th>
@@ -21,6 +22,7 @@
   <tbody>
     <% @locations.each do |location| %>
       <tr>
+        <td><img><%=image_tag location.image %></td>
         <td><%= link_to location.name, location %></td>
         <td><%= location.address %></td>
         <td><%= location.website %></td>
