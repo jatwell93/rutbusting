@@ -1,6 +1,6 @@
 <div class="row">
-  <div class="col-md-8">
-    <img><%= image_tag @location.image_url %>
+  <div class="col-md-5">
+    <%= image_tag @location.image_url, class: "display-location" %>
     
     <h2>
       <%= @location.name %>
@@ -8,6 +8,11 @@
     
     <div class="star-rating" data-score=<%= @avg_rating %>></div> 
     <p><%= "#{@reviews.length} reviews" %></p>
+    
+    <p>
+      <strong>Description/Experience:</strong>
+      <%= @location.description %>
+    </p>
     
     <p>
       <strong>Address:</strong>
@@ -19,36 +24,38 @@
       <%= @location.website %>
     </p> 
     </br>
+    
     <iframe
-      width="300"
-      height="300"
+      width="100%"
+      height="500"
       frameborder="0" style="border:0"
       src="https://www.google.com/maps/embed/v1/place?key=AIzaSyBJg0HiO2KtvExTuiWB6rKhmUUsHXFk6dY
         &q=<%= @location.address.parameterize %>&zoom=11">
     </iframe>
     </br>
     </br>
-    <%= link_to 'Leave a Review', new_location_review_path(@location), class:"btn btn-success"%>
+    Share this page with your friends<%= render_shareable :buttons=> ['twitter', 'facebook', 'pinterest', 'google_plus'] %>
   </div>
 </br>
-  <div class="col-md-4">
+  <div class="col-md-7">
     <h2>Reviews for: <%= @location.name %></h2>
     <% if @reviews.blank? %>  
-      <div class='well'>No reviews yet. Be the first to write one!</br>
+      <div class='well'><h3 class="text-center">No reviews yet. Be the first to write one!</h3></br>
         <%= link_to 'Leave a Review', new_location_review_path(@location), class:"btn btn-success"%>
       </div>
     <% else %>
       <table class="table table-hover table-responsive">
         <thead>
           <tr>
+            <th class="col-md-2"></th>
             <th class="col-md-3"></th>
-            <th class="col-md-9"></th>
+            <th class="col-md-6"></th>
           </tr>
         </thead>
-
         <tbody>
           <% @reviews.each do |review| %>
             <tr>
+              <td><%= gravatar_for review.user, size:100 %></td>
               <td>
                 <h4>
                   <%= "#{review.user.first_name.capitalize} #{review.user.last_name.capitalize[0]}." %>
@@ -57,17 +64,21 @@
                  <span class='quiet'><small>Created: <%= time_ago_in_words(review.created_at)%> ago</small></span><br />
                </p>
               </td>
-
               <td>
                 <div class="star-rating" data-score= <%= review.rating %> ></div>
                 <p><%= h(review.comment).gsub(/\n/, '<br/>').html_safe %></p>
-
                 <% if user_signed_in? %>
                   <% if (review.user == current_user) || (current_user.admin?) %>
                     <%= link_to "Edit", edit_location_review_path(@location, review) %>
                     <%= link_to "Delete", location_review_path(@location, review), method: :delete %>
                   <% end %>
                 <% end %>
+                <% if user_signed_in? && review.user != current_user %>
+                  <div><%= link_to 'Leave your own review', new_location_review_path(@location), class:"btn btn-success"%></div>
+                <%else %>
+                 <strong><%= link_to "Login in", new_user_session_path, class:"btn btn-primary" %> OR
+                 <%= link_to "Sign up", new_user_registration_path, class:"btn btn-success" %>to leave you own review</strong>
+                 <% end %>
               </td>
             </tr>
           <% end %>

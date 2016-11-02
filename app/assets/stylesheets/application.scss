@@ -2,6 +2,12 @@
 @import "bootstrap";
 @import "font-awesome-sprockets";
 @import "font-awesome";
+
+@mixin box-shadow {
+	-webkit-box-shadow: rgba(0, 0, 0, 0.09) 0 2px 0;
+	-moz-box-shadow: rgba(0, 0, 0, 0.09) 0 2px 0;
+	box-shadow: rgba(0, 0, 0, 0.09) 0 2px 0;
+}
 // @import url(http://fonts.googleapis.com/css?family=Raleway);
 
 // Colors
@@ -10,6 +16,7 @@ $dk-blue: #1E83AE;
 $blue: #3D5B94;
 $light-blue: #3DACDD;
 $green: #6dcd9a;
+$red: #DB6161;
 $social-size: 1.2em;
 $social-width: 20%;
 * {
@@ -87,6 +94,147 @@ div {
 }
 }
 }
+.gravatar {
+  border-radius: 20px;
+}
+.display-location {
+  width: 70%;
+}
+
+.cover {
+    height: 100%;
+}
+
+.cover {
+    background: url('https://s3.amazonaws.com/rutbustin1/assets/hero-image-min.jpeg') no-repeat;
+    height: 900px;
+    margin-top: -20px;
+    background-size: 100% 100%;
+    display: table;
+    width: 100%;
+    padding: 0 20%;
+    box-shadow: inset 0 0 100px #000;
+    position: relative;
+    background-position: top center;
+    background-attachment: fixed;
+    background-repeat: no-repeat;
+    overflow: hidden;
+}
+
+.cover-text {
+    text-align: center;
+    color: white;
+    display: table-cell;
+    vertical-align: middle;
+}
+
+.cover-text h1 {
+    margin: 0;
+    font-size: 70px;
+    letter-spacing: -3px;
+}
+
+.testimonial {
+  background: #DC2424; /* fallback for old browsers */
+  background: #000428; /* fallback for old browsers */
+  background: -webkit-gradient(linear, 0 0, 100% 0, from(#000428), to(#004e92));
+  background: -webkit-linear-gradient(to left, #000428, #004e92);
+  background: -moz-linear-gradient(to left, #000428, #004e92);
+  background: -o-linear-gradient(to left, #000428, #004e92);
+  background: linear-gradient(to left, #000428, #004e92); /* Chrome 10-25, Safari 5.1-6 */ /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+}
+blockquote {
+    border: none;
+    margin: 0;
+    font-family: Georgia, Times, serif;
+    font-style: italic;
+    font-size: 32px;
+    color: white;
+}
+
+blockquote cite {
+    display: block;
+    text-align: right;
+    text-transform: uppercase;
+    font-family: Helvetica, Arial, sans-serif;
+    font-style: normal;
+    font-size: 18px;
+    font-weight: bold;
+    color: #888;
+    margin-top: 40px;
+}
+#services{
+  height: 100%;
+  padding: 50px 0 50px 0;
+}
+#services h3 {
+    font-size: 45px;
+}
+#services h5 {
+  font-size: 25px;
+}
+p.button {
+  text-align: center;
+}
+
+@media only screen and (min-width : 768px) {
+  
+  #services {
+    display: table;
+  }
+  .service{
+    float: none;
+  	width: 33%;
+  	display: table-cell;
+    vertical-align: top;
+    position: relative;
+    padding-bottom: 50px;
+  }
+  p.button {
+    position: absolute;
+    bottom: 0;
+    /*text-align: center;*/
+    margin-left: auto;
+    margin-right: auto;
+    width: 70%;
+  }
+}
+div.box {
+  box-shadow: -5px 0 0 rgb(249, 81, 101);
+}
+ul {
+    list-style-position: inside;
+}
+#team {
+    background: url('https://s3.amazonaws.com/rutbustin1/assets/city-mountains-night-light-at-lake-min.jpg') no-repeat;
+    background-size: cover;
+    height: 700px;
+    margin: -20px -20px;
+    color: white;
+    text-align: center;
+    position: relative;
+    background-size: 100% 100%;
+    background-position: top center;
+    background-attachment: fixed;
+}
+
+section {
+    padding: 100px;
+}
+
+h2 {
+    text-align: center;
+    font-size: 28px;
+    font-weight: bold;
+    text-transform: uppercase;
+    margin: 0 0 60px;
+}
+
+h2 + p {
+    text-align: center;
+    margin-top: -60px;
+}
+
 // footer
 footer {
   width: 100%;
@@ -157,4 +305,82 @@ footer {
   background-color: $green;
   font-size: 0.8em;
   width: 40%;
+}
+// shareable buttons
+nav.share {
+  display:inline-block;
+} /* shareable's nav tag */
+nav.share div {
+  float:left;
+}
+nav.share iframe {
+  border:0; margin-top:0; padding-top:0;
+} /* if using medium sized buttons */
+#___plusone_0 {
+  font-size: default !important;
+}
+.fb_iframe_widget span { 
+  vertical-align: top; 
+}
+.fb_edge_widget_with_comment { 
+  vertical-align: top;
+}
+.fb-like{
+  display:inline-block
+}
+* html .fb-like{display:inline}/* ie6 inline block fix*/
+*+html .fb-like{display:inline}/* ie7 inline block fix*/
+.recipe {
+	background: white;
+	border-radius: 5px;
+	margin-bottom: 40px;
+	@include box-shadow;
+	.image_wrapper {
+		max-width: 100%;
+		border-radius: 5px 5px 0 0;
+		overflow: hidden;
+	}
+	img {
+		width: 100%;
+		-webkit-transition: all .3s ease-out;
+	  -moz-transition: all .3s ease-out;
+	  -o-transition: all .3s ease-out;
+    transition: all .3s ease-out;
+		&:hover {
+			transform: scale(1.075);
+		}
+	}
+	h2 {
+		padding: 15px 5%;
+		margin: 0;
+		font-size: 20px;
+		font-weight: normal;
+		line-height: 1.5;
+		a {
+			color: $red;
+		}
+	}
+}
+/* Media Queries */
+
+@media only screen and ( max-width : 568px ) {
+    .cover h1 {
+        font-size: 40px;
+    }
+    #services h3 {
+        font-size: 30px;
+    }
+    #services h5 {
+        font-size: 20px;
+    }
+    #services {
+        padding: 15px 30px 15px 30px;
+    }
+    section {
+        padding: 20px;
+    }
+    div.box {
+    box-shadow: none;
+}
+    
 }

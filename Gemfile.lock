@@ -305,6 +305,9 @@ GEM
       activemodel
       elasticsearch (>= 1)
       hashie
+    shareable (1.1.4)
+      actionpack (>= 3.0.0)
+      activesupport (>= 3.0.0)
     spring (2.0.0)
       activesupport (>= 4.2)
     sprockets (3.7.0)
@@ -357,6 +360,7 @@ DEPENDENCIES
   sass-rails (>= 3.2)
   sdoc (~> 0.4.0)
   searchkick
+  shareable
   spring
   sqlite3
   turbolinks

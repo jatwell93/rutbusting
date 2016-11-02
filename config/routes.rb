@@ -8,11 +8,11 @@ Rails.application.routes.draw do
     end
     resources :reviews, except: [:show, :index]
   end
-  get 'pages/about'
-
-  get 'pages/contact'
-
-  root 'locations#index'
+  
+  root 'pages#home'
+  get '/home', to: 'pages#home'
+  get '/about', to: 'pages#about'
+  get '/faq', to: 'pages#faq'
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 

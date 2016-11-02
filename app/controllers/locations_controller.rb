@@ -1,6 +1,6 @@
 class LocationsController < ApplicationController
   before_action :set_location, only: [:show, :edit, :update, :destroy]
-  before_action :authenticate_user, except: [:index, :show, :search]
+  before_action :authenticate_user!, except: [:index, :show, :search]
   before_action :check_user, except: [:index, :show, :search]
 
   def search
@@ -8,6 +8,7 @@ class LocationsController < ApplicationController
       @locations = Location.search(params[:search])
     else
       @locations = Location.all
+      flash[:alert] = "Sorry search terms didnt locate any results"
     end
   end
   # GET /locations
@@ -84,7 +85,7 @@ class LocationsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def location_params
-      params.require(:location).permit(:name, :address, :website, :image)
+      params.require(:location).permit(:name, :address, :website, :image, :description)
     end
     
     def check_user

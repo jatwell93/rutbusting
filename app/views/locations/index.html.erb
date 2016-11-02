@@ -1,10 +1,10 @@
+<div class="containter">
+<nav class="breadcrumb">
+  <a class="breadcrumb-item" <%= link_to 'Home/', root_path%></a>
+  <span class="breadcrumb-item active">Location List</span>
+</nav>
+<%= render 'devise/shared/page_title', title: 'All Locations'%>
 
-<div class="jumbotron">
-  <h1>Feeling run down? Tired? Semi-suicidal? Well we've got you covered!</h1>
-  </br>
-  <h3>Welcome to rut bustin' a place where people can gather and share how they've busted themselves out a of rut.</h3>
-  <div class="text-center"><button class="col-md-4 btn btn-lg btn-success center-block">Sign up now!</button></br></div>
-</div>
 
 <table class="table table-hover table-responsive">
   <thead>
@@ -22,7 +22,7 @@
   <tbody>
     <% @locations.each do |location| %>
       <tr>
-        <td><img><%=image_tag location.image %></td>
+        <td class="recipe"><div class="image_wrapper"><%=image_tag location.image %></div></td>
         <td><%= link_to location.name, location %></td>
         <td><%= location.address %></td>
         <td><%= location.website %></td>
