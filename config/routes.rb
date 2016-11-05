@@ -1,6 +1,7 @@
 Rails.application.routes.draw do
   
 
+  resources :post_attachments
   devise_for :users
   resources :locations do 
     collection do

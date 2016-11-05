@@ -3,29 +3,36 @@
   <a class="breadcrumb-item" <%= link_to 'Home/', root_path%></a>
   <span class="breadcrumb-item active">Location List</span>
 </nav>
-<%= render 'devise/shared/page_title', title: 'All Locations'%>
+<div class="jumbotron">
+  <h1><%= render 'devise/shared/page_title', title: 'All Locations'%></h1>
+  <p class="lead">Here you'll find many locations for you to explore!</p>
+  <p>Coming soon: add locations to your wishlists then check them off one by one</p>
+</div>
 
 
+<%= will_paginate @locations, renderer: BootstrapPagination::Rails, class:"pull-left paginate" %>
 <table class="table table-hover table-responsive">
-  <thead>
+  <thead class="thead-inverse">
     <tr>
-      <th></th>
+      <th>image</th>
       <th>Name</th>
+      <th>Description</th>
       <th>Address</th>
-      <th>Website</th>
+      <th>Average ranking</th>
       <% if user_signed_in? && current_user.admin? %>
-        <th colspan="2">Actions</th>
+        <th>Actions</th>
       <% end %>  
     </tr>
   </thead>
 
-  <tbody>
+  <tbody class="animated fadeInDown">
     <% @locations.each do |location| %>
       <tr>
-        <td class="recipe"><div class="image_wrapper"><%=image_tag location.image %></div></td>
-        <td><%= link_to location.name, location %></td>
+        <td class="recipe" colspan="2"><div class="image_wrapper hidden-xs-down"><%=image_tag location.image %></div></td>
+        <td class="hidden-xs-down"><%= link_to location.name, location %></td>
+        <td class="hidden-xs-down"><%= truncate(location.description, length: 150)%> <small><%=link_to 'click to see more', location_path(location)%></small></td>
         <td><%= location.address %></td>
-        <td><%= location.website %></td>
+        <td><div class="star-rating" data-score=<%= @avg_rating %>></div></td>
         <% if user_signed_in? && current_user.admin? %>
           <td><%= link_to 'Edit', edit_location_path(location), class:"btn btn-warning" %></td>
           <td><%= link_to 'Destroy', location, method: :delete, data: { confirm: 'Are you sure?' }, class:"btn btn-danger" %></td>
@@ -36,6 +43,18 @@
 </table>
 
 <br>
-<% if user_signed_in? && current_user.admin? %>
+<hr>
+<div><% if user_signed_in? && current_user.admin? %>
   <%= link_to 'New Location', new_location_path, class:"btn btn-primary" %>
 <% end %>
+</div>
+<%= will_paginate @locations, renderer: BootstrapPagination::Rails, class:"pull-left paginate" %>
+<script>
+  $('.star-rating').raty({
+    path: 'https://s3.amazonaws.com/rutbustin1/stars/', 
+    readOnly : true,
+      score: function() {
+        return $(this).attr('data-score');
+      }
+  });
+</script>

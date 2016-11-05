@@ -1,10 +1,29 @@
 <div class="row">
   <div class="col-md-5">
-    <%= image_tag @location.image_url, class: "display-location" %>
-    
-    <h2>
+    <%= image_tag @location.image_url, class: "display-location animated bounce" %>
+    <div class = "row hidden-sm-down">
+       <div class = "col-sm-4 hidden-sm-down">
+          <a href = "#" class = "thumbnail">
+             <img src = "https://upload.wikimedia.org/wikipedia/commons/thumb/a/a6/BendigoShamrockHotel.JPG/220px-BendigoShamrockHotel.JPG" alt = "Generic placeholder thumbnail">
+          </a>
+       </div>
+       
+       <div class = "col-sm-4">
+          <a href = "#" class = "thumbnail">
+             <img src = "https://upload.wikimedia.org/wikipedia/commons/thumb/a/a6/BendigoShamrockHotel.JPG/220px-BendigoShamrockHotel.JPG" alt = "Generic placeholder thumbnail">
+          </a>
+       </div>
+       
+       <div class = "col-sm-4">
+          <a href = "#" class = "thumbnail">
+             <img src = "https://upload.wikimedia.org/wikipedia/commons/thumb/a/a6/BendigoShamrockHotel.JPG/220px-BendigoShamrockHotel.JPG" alt = "Generic placeholder thumbnail">
+          </a>
+       </div>
+       
+    </div>
+    <h1>
       <%= @location.name %>
-    </h2>
+    </h1>
     
     <div class="star-rating" data-score=<%= @avg_rating %>></div> 
     <p><%= "#{@reviews.length} reviews" %></p>
@@ -34,10 +53,10 @@
     </iframe>
     </br>
     </br>
-    Share this page with your friends<%= render_shareable :buttons=> ['twitter', 'facebook', 'pinterest', 'google_plus'] %>
+    <strong>Share this page with your friends: </strong><%= render_shareable :buttons=> ['twitter', 'facebook', 'pinterest', 'google_plus'] %>
   </div>
 </br>
-  <div class="col-md-7">
+  <div class="col-md-7 animated slideInRight">
     <h2>Reviews for: <%= @location.name %></h2>
     <% if @reviews.blank? %>  
       <div class='well'><h3 class="text-center">No reviews yet. Be the first to write one!</h3></br>
@@ -52,7 +71,7 @@
             <th class="col-md-6"></th>
           </tr>
         </thead>
-        <tbody>
+        <tbody class="animate bounceInLeft">
           <% @reviews.each do |review| %>
             <tr>
               <td><%= gravatar_for review.user, size:100 %></td>
@@ -75,18 +94,33 @@
                 <% end %>
                 <% if user_signed_in? && review.user != current_user %>
                   <div><%= link_to 'Leave your own review', new_location_review_path(@location), class:"btn btn-success"%></div>
-                <%else %>
-                 <strong><%= link_to "Login in", new_user_session_path, class:"btn btn-primary" %> OR
-                 <%= link_to "Sign up", new_user_registration_path, class:"btn btn-success" %>to leave you own review</strong>
-                 <% end %>
+                <%end %>
+                <% if user_signed_in? %>
+                <% else %>
+                  <strong>
+                   <%= link_to "Login in", new_user_session_path, class:"btn btn-primary hidden-sm-down" %> OR
+                   <%= link_to "Sign up", new_user_registration_path, class:"btn btn-success hidden-sm-down" %>to leave you own review
+                  </strong>
+                <% end %>
               </td>
             </tr>
           <% end %>
         </tbody>
       </table>
     <% end %>
+  <h4><i>You may also like: </i></h4>
+  <hr>
+    <% @random_location.each do |location| %>
+      <div class="row show-img">
+        <div class="image_wrapper hidden-xs-down"><%=image_tag location.image %></div>
+        <%= link_to location.name, location %></td>
+        <%= truncate(location.description, length: 150)%> <small><%=link_to 'click to see more', location_path(location)%></small></td>
+      </div>
+    <% end %>
+      </div>
   </div>
 </div>
+</br>
 <% if user_signed_in? %>
   <%= link_to 'Edit', edit_location_path(@location), class:"btn btn-warning" %> 
   <%= link_to 'Back', locations_path, class:"btn btn-primary" %>

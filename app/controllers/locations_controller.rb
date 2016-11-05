@@ -15,11 +15,13 @@ class LocationsController < ApplicationController
   # GET /locations.json
   def index
     @locations = Location.all
+    @locations = @locations.paginate(:page => 1, :per_page => 2)
   end
 
   # GET /locations/1
   # GET /locations/1.json
   def show
+    @random_location = Location.where.not(id: @location).order("RANDOM()").first(3)
     @reviews = Review.where(location_id: @location.id).order("created_at DESC")
     if @reviews.blank?
       @avg_rating = 0

@@ -17,7 +17,7 @@
     <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
       <ul class="nav navbar-nav">
         <li><%= link_to 'Home', root_path %>
-        <li><a href="/pages/about">About<span class="sr-only">(current)</span></a></li>
+        <li><%= link_to 'Listings', locations_path %></li>
       </ul>
       
       <%= form_tag search_locations_path, method: :get, class: "navbar-form navbar-left" do %>
