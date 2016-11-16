@@ -30,7 +30,7 @@
     
     <p>
       <strong>Description/Experience:</strong>
-      <%= @location.description %>
+      <%= simple_format(@location.description) %>
     </p>
     
     <p>
@@ -42,16 +42,18 @@
       <strong>Website:</strong>
       <%= link_to @location.website %>
     </p> 
-    </br>
     
-    <iframe
-      width="100%"
-      height="500"
-      frameborder="0" style="border:0"
-      src="https://www.google.com/maps/embed/v1/place?key=AIzaSyBJg0HiO2KtvExTuiWB6rKhmUUsHXFk6dY
-        &q=<%= @location.address.parameterize %>&zoom=11">
-    </iframe>
+    <p>
+      <strong>Price:</strong>
+      <%= @location.price %>
+    </p> 
     </br>
+  <iframe width="600" height="450" frameborder="0" style="border:0" src="//www.google.com/maps/embed/v1/directions?origin=Melbourne
+      &destination=<%= @location.address.parameterize %>
+      &key=AIzaSyARl1oy1nyRncZVCYPzCJMzeCvX9Q89SDE">
+  </iframe>
+    </br>
+   
     </br>
     <strong>Share this page with your friends: </strong><%= render_shareable :buttons=> ['twitter', 'facebook', 'pinterest', 'google_plus'] %>
   </div>
