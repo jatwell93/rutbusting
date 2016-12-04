@@ -18,6 +18,7 @@ gem 'shareable'
 gem 'will_paginate-bootstrap'
 gem "figaro"
 gem "mini_magick"
+gem 'heroku-deflater', :group => :production
 gem 'devise'
 gem 'jquery-raty-rails', github: 'bmc/jquery-raty-rails'
 gem 'sdoc', '~> 0.4.0', group: :doc
