@@ -4,10 +4,7 @@
   <title>Rut Bustin' </title>
   <meta name=viewport content="width=device-width, initial-scale=1">
   <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
- 
   <link href="https://fonts.googleapis.com/css?family=Pacifico|Raleway" rel="stylesheet">
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.5.2/animate.min.css">
-  
   <%= csrf_meta_tags %>
 </head>
 <body>
@@ -24,6 +21,7 @@
 <%= yield %>
 </div>
 <%= render 'layouts/footer' %>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.5.2/animate.min.css">
 <script type="text/javascript">
   function downloadJSAtOnload() {
   var element = document.createElement("script");
