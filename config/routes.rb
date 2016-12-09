@@ -16,4 +16,5 @@ Rails.application.routes.draw do
   get '/faq', to: 'pages#faq'
   
   get "sitemap" => "sitemap#show", format: :xml, as: :sitemap
+   get "sitemap/users" => "sitemap#index"
 end
