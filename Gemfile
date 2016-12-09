@@ -25,6 +25,7 @@ gem 'jquery-raty-rails', github: 'bmc/jquery-raty-rails'
 gem 'sdoc', '~> 0.4.0', group: :doc
 gem 'pg'
 gem 'rails_12factor'
+gem 'httparty'
 
 group :development, :test do
   gem 'byebug'
