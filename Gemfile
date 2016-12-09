@@ -18,6 +18,7 @@ gem 'shareable'
 gem 'will_paginate-bootstrap'
 gem "figaro"
 gem "mini_magick"
+gem 'plupload-rails'
 gem 'heroku-deflater', :group => :production
 gem 'devise'
 gem 'jquery-raty-rails', github: 'bmc/jquery-raty-rails'
@@ -31,7 +32,8 @@ group :development do
   gem 'web-console', '~> 2.0'
   gem 'spring' 
 group :development, :test do
-  gem 'sqlite3'
+  gem 'pg'
+  gem 'rails_12factor'
 end
 group :production do
   gem 'pg'

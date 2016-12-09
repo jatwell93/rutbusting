@@ -4,15 +4,10 @@
   <title>Rut Bustin' </title>
   <meta name=viewport content="width=device-width, initial-scale=1">
   <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
-  <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
+ 
   <link href="https://fonts.googleapis.com/css?family=Pacifico|Raleway" rel="stylesheet">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.5.2/animate.min.css">
-  <!--<script-->
-  <!--src="https://code.jquery.com/jquery-3.1.1.min.js"-->
-  <!--integrity="sha256-hVVnYaiADRTO2PzUGmuLJr8BLUSjGIZsDYGmIJLv2b8="-->
-  <!--crossorigin="anonymous"></script>-->
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/raty/2.7.1/jquery.raty.min.js"></script>
-  <script src="//load.sumome.com/" data-sumo-site-id="c2644678038cb79e7a477ba9cd1227b0617895268f0d0714b7a7b3227d53410a" async="async"></script><script src="//load.sumome.com/" data-sumo-site-id="c2644678038cb79e7a477ba9cd1227b0617895268f0d0714b7a7b3227d53410a" async="async"></script>
+  
   <%= csrf_meta_tags %>
 </head>
 <body>
@@ -29,5 +24,19 @@
 <%= yield %>
 </div>
 <%= render 'layouts/footer' %>
+<script type="text/javascript">
+  function downloadJSAtOnload() {
+  var element = document.createElement("script");
+  element.src = "https://cdnjs.cloudflare.com/ajax/libs/raty/2.7.1/jquery.raty.min.js";
+  document.body.appendChild(element);
+  }
+  if (window.addEventListener)
+  window.addEventListener("load", downloadJSAtOnload, false);
+  else if (window.attachEvent)
+  window.attachEvent("onload", downloadJSAtOnload);
+  else window.onload = downloadJSAtOnload;
+</script>
+ <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
+ <script src="//load.sumome.com/" data-sumo-site-id="c2644678038cb79e7a477ba9cd1227b0617895268f0d0714b7a7b3227d53410a" async="async"></script>
 </body>
 </html>

@@ -8,8 +8,6 @@
 	-moz-box-shadow: rgba(0, 0, 0, 0.09) 0 2px 0;
 	box-shadow: rgba(0, 0, 0, 0.09) -3px 3px 2px;
 }
-// @import url(http://fonts.googleapis.com/css?family=Raleway);
-
 // Colors
 
 $dk-blue: #1E83AE;
@@ -17,6 +15,8 @@ $blue: #3D5B94;
 $light-blue: #3DACDD;
 $green: #6dcd9a;
 $red: #DB6161;
+$white: #fff;
+
 $social-size: 1.2em;
 $social-width: 20%;
 * {
@@ -28,7 +28,7 @@ $social-width: 20%;
 html,
 body {
   font-family: Raleway, sans-serif;
-  background-color: #fff;
+  background-color: $white;
 }
 // navigation 
 .container > {
@@ -48,7 +48,7 @@ body {
   color: #f95165;
     h5 { font-size: 2.5em;
          font-family: 'Pacifico', cursive;
-         text-shadow: -2px 1px 1px #FFF;
+         text-shadow: -2px 1px 1px $white;
     }
 }
 .navbar-inverse {
@@ -384,7 +384,6 @@ nav.share iframe {
 }
 
 /* Media Queries */
-
 @media only screen and ( max-width : 568px ) {
     .cover h1 {
         font-size: 40px;

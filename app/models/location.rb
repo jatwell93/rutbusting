@@ -7,6 +7,6 @@ class Location < ActiveRecord::Base
   has_many :reviews 
   
   validates :name, :address, :image, presence: true
-  validates :address, format: { with: /\A\S+[^,]+,[^,]+[a-zA-Z]{2,10} \d{2,6}\z/,
-    message: "must be in the format; 123 Fake St, Melbourne VIC 3056 (Number + Street name + Type i.e St, Rd, Cr, Dr etc.), (Town or city + State QLD, NSW, NT etc. + Postcode" }
+  validates :address, format: { with: /\d+[^,]+,[^,]+, [A-Z]{2,6} \d{4}/,
+    message: "must be in the format; 123 Fake St, Melbourne, VIC 3058" }
 end

@@ -8,8 +8,6 @@
   <p class="lead">Here you'll find many locations for you to explore!</p>
   <p>Coming soon: add locations to your wishlists then check them off one by one</p>
 </div>
-
-
 <%= will_paginate @locations, renderer: BootstrapPagination::Rails, class:"pull-left paginate" %>
 <table class="table table-hover table-responsive">
   <thead class="thead-inverse">
@@ -23,7 +21,6 @@
       <% end %>  
     </tr>
   </thead>
-
   <tbody class="animated fadeInDown">
     <% @locations.each do |location| %>
       <tr>
@@ -41,7 +38,6 @@
     <% end %>
   </tbody>
 </table>
-
 <br>
 <hr>
 <div><% if user_signed_in? && current_user.admin? %>
