@@ -23,6 +23,8 @@ gem 'heroku-deflater', :group => :production
 gem 'devise'
 gem 'jquery-raty-rails', github: 'bmc/jquery-raty-rails'
 gem 'sdoc', '~> 0.4.0', group: :doc
+gem 'pg'
+gem 'rails_12factor'
 
 group :development, :test do
   gem 'byebug'
@@ -31,10 +33,7 @@ end
 group :development do
   gem 'web-console', '~> 2.0'
   gem 'spring' 
-group :development, :test do
-  gem 'pg'
-  gem 'rails_12factor'
-end
+
 group :production do
   gem 'pg'
   gem 'rails_12factor'
