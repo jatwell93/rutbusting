@@ -39,10 +39,10 @@ class PostAttachmentsController < ApplicationController
 
   # PATCH/PUT /post_attachments/1
   # PATCH/PUT /post_attachments/1.json
-def update
+  def update
     respond_to do |format|
       if @post_attachment.update(post_attachment_params)
-        format.html { redirect_to @post_attachment.post, notice: 'Post attachment was successfully updated.' }
+        format.html { redirect_to @post_attachment, notice: 'Post attachment was successfully updated.' }
         format.json { render :show, status: :ok, location: @post_attachment }
       else
         format.html { render :edit }
@@ -69,6 +69,6 @@ def update
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def post_attachment_params
-      params.require(:post_attachment).permit(:post_id, :image)
+      params.require(:post_attachment).permit(:location_id, :image)
     end
 end

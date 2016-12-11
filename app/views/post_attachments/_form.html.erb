@@ -11,14 +11,13 @@
     </div>
   <% end %>
 
-<%= image_tag @post_attachment.image %>
   <div class="field">
     <%= f.label :location_id %><br>
     <%= f.number_field :location_id %>
   </div>
   <div class="field">
     <%= f.label :image %><br>
-    <%= f.file_field :image %>
+    <%= f.text_field :image %>
   </div>
   <div class="actions">
     <%= f.submit %>
