@@ -1,7 +1,7 @@
 <div class="row">
   <div class="col-md-5">
     <div class="carousel slide" id="myCarousel">
-      <% if @location.images[0] %>
+      <% if @location.images[0].url %>
         <ol class="carousel-indicators">
           <% @location.images.each do |image| %>
           <li data-target="#myCarousel" data-slide-to="<%= image %>"></li>
@@ -9,10 +9,10 @@
         </ol>               
       <% end %>     
       <div class="carousel-inner" role="listbox">
-        <% if @location.images[0] %>               
+        <% if @location.images[0].url %>               
           <% @location.images.each do |image| %>
             <div class="item <%= 'active' if image == @location.images[0] %>">          
-              <%= image_tag image %>
+              <%= image_tag image.url %>
             </div>
           <% end %>  
         <% end %>
