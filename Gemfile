@@ -35,8 +35,4 @@ group :development do
   gem 'web-console', '~> 2.0'
   gem 'spring' 
 
-group :production do
-  gem 'pg'
-  gem 'rails_12factor'
-end
 end
