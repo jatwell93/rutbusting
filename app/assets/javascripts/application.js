@@ -13,7 +13,10 @@
 //= require jquery
 //= require jquery_ujs
 //= require jquery.raty.min
+//= require jquery-ui
 //= require bootstrap-sprockets
+//= require thredded
+//= require masonry/masonry.min
 //= require turbolinks
 //= require_tree .
 

@@ -8,40 +8,51 @@
   <p class="lead">Here you'll find many locations for you to explore!</p>
   <p>Coming soon: add locations to your wishlists then check them off one by one</p>
 </div>
-<%= will_paginate @locations, renderer: BootstrapPagination::Rails, class:"pull-left paginate" %>
-<table class="table table-hover table-responsive">
-  <thead class="thead-inverse">
-    <tr>
-      <th>image</th>
-      <th>Name</th>
-      <th class="hidden-xs-down"></th>
-      <th class="hidden-xs-down">Address</th>
-      <% if user_signed_in? && current_user.admin? %>
-        <th class="hidden-xs-down">Actions</th>
-      <% end %>  
-    </tr>
-  </thead>
-  <tbody class="animated fadeInDown">
-    <% @locations.each do |location| %>
-      <tr>
-        <td class="recipe image_wrapper hidden-xs-down"><%=image_tag location.image %></td>
-        <td><%= link_to location.name, location %></td>
-        <td class="hidden-xs-down"><%= truncate(location.description, length: 150)%> <small><%=link_to 'click to see more', location_path(location)%></small></td>
-        <td class="hidden-xs-down"><%= location.address %></td>
-        <% if user_signed_in? && current_user.admin? %>
-          <td class="hidden-xs-down">
-            <%= link_to 'Edit', edit_location_path(location), class:"btn btn-warning" %>
-            <%= link_to 'Destroy', location, method: :delete, data: { confirm: 'Are you sure?' }, class:"btn btn-danger" %>
-          </td>
-        <% end %>
-      </tr>
-    <% end %>
-  </tbody>
-</table>
-<br>
-<hr>
+
 <div><% if user_signed_in? && current_user.admin? %>
   <%= link_to 'New Location', new_location_path, class:"btn btn-primary" %>
 <% end %>
 </div>
+<br>
+
 <%= will_paginate @locations, renderer: BootstrapPagination::Rails, class:"pull-left paginate" %>
+
+<div class=container>
+  <% @locations.each_slice(3) do |locations| %>
+    <div class="row">
+      <% locations.each do |location| %>
+        <div class="col-md-4">
+          <div class="recipe">
+            <div class="image_wrapper">
+              <%= link_to location do %>
+                <%= image_tag location.images[0].url %>
+              <% end %>
+            </div>
+            <div id="name">
+              <h2>
+                <%= link_to location.name, location %>
+              </h2>
+            </div>
+            <div id="description">
+              <p>
+                <%= truncate(location.description, length: 900)%> <small><%=link_to 'click to see more', location_path(location)%></small>
+              </p>
+            </div>
+            <hr>
+            <div id="address">
+              <h2>
+                <%=link_to location.address, "https://www.google.com.au/maps/place/#{location.address}/" %>
+              </h2>
+            </div>
+            <% if user_signed_in? && current_user.admin? %>
+            <div>
+              <%= link_to 'Edit', edit_location_path(location), class:"btn btn-warning" %>
+              <%= link_to 'Destroy', location, method: :delete, data: { confirm: 'Are you sure?' }, class:"btn btn-danger" %>
+            </div>
+            <% end %>
+          </div>
+        </div>
+      <% end %>
+    </div>
+  <% end %>
+</div>

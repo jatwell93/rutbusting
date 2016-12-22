@@ -2,11 +2,12 @@
 @import "bootstrap";
 @import "font-awesome-sprockets";
 @import "font-awesome";
+@import "thredded";
 
 @mixin box-shadow {
-	-webkit-box-shadow: rgba(0, 0, 0, 0.09) 0 2px 0;
-	-moz-box-shadow: rgba(0, 0, 0, 0.09) 0 2px 0;
-	box-shadow: rgba(0, 0, 0, 0.09) -3px 3px 2px;
+	-webkit-box-shadow: rgba(0, 0, 0, 0.1) 0 2px 0;
+	-moz-box-shadow: rgba(0, 0, 0, 0.1) 0 2px 0;
+	box-shadow: rgba(0, 0, 0, 0.1) -5px 5px 2px;
 }
 // Colors
 
@@ -16,6 +17,8 @@ $light-blue: #3DACDD;
 $green: #6dcd9a;
 $red: #DB6161;
 $white: #fff;
+$light-grey: #E0E0E0;
+$darker-grey: #C0C0C0;
 
 $social-size: 1.2em;
 $social-width: 20%;
@@ -354,7 +357,7 @@ nav.share iframe {
 		padding: 15px 5%;
 		margin: 0;
 		font-size: 20px;
-		font-weight: normal;
+		font-weight: bold;
 		line-height: 1.5;
 		a {
 			color: $red;
@@ -381,6 +384,17 @@ nav.share iframe {
 			transform: scale(1.075);
 		}
 	}
+}
+#name {
+  background: $light-grey;
+  padding: 10px;
+}
+#description {
+  padding: 10px;
+}
+#address{
+  background: $light-grey;
+  padding: 10px;
 }
 
 /* Media Queries */
@@ -437,3 +451,8 @@ a.skip:hover {
     line-height: 1;
 }
     
+.active-item-shadow {
+  -webkit-box-shadow: rgba(133,133,133,0.1) 0 0 5px 2px,rgba(133,133,133,0.3) 0 0 2px;
+  -moz-box-shadow: rgba(133,133,133,0.1) 0 0 5px 2px,rgba(133,133,133,0.3) 0 0 2px;
+  box-shadow: rgba(133,133,133,0.1) 0 0 5px 2px,rgba(133,133,133,0.3) 0 0 2px;
+}

@@ -11,11 +11,20 @@ class LocationsController < ApplicationController
       flash[:alert] = "Sorry search terms didnt locate any results"
     end
   end
+  
+  def sort_column
+    name_sort = SortableTable::SortColumnCustomDefinition.new('name',
+      asc: 'name asc, address asc',
+      desc: 'name desc, address desc')
+    address_sort = SortableTable::SortColumnDefinition.new('address')
+    sort_table = SortableTable::SortTable.new([name_sort, address_sort])
+    sort_table.sort_column(params[:sort], params[:direction])
+  end
   # GET /locations
   # GET /locations.json
   def index
     @locations = Location.all
-    @locations = @locations.paginate(:page => 1, :per_page => 2)
+    @locations = @locations.paginate(:page => 1, :per_page => 5)
   end
 
   # GET /locations/1
