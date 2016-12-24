@@ -20,9 +20,7 @@
 <div class=container>
   <% @locations.each_slice(3) do |locations| %>
     <div class="row">
-    <% cache @locations do %>
       <% locations.each do |location| %>
-        <% cache location do %>
           <div class="col-md-4">
             <div class="recipe">
               <div class="image_wrapper">
@@ -55,8 +53,6 @@
           </div>
         </div>
       <% end %>
-    <% end %>
-    <% end %>
     </div>
   <% end %>
 </div>
