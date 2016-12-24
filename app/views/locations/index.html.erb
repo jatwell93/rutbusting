@@ -20,39 +20,43 @@
 <div class=container>
   <% @locations.each_slice(3) do |locations| %>
     <div class="row">
+    <% cache @locations do %>
       <% locations.each do |location| %>
-        <div class="col-md-4">
-          <div class="recipe">
-            <div class="image_wrapper">
-              <%= link_to location do %>
-                <%= image_tag location.images[0].url %>
+        <% cache location do %>
+          <div class="col-md-4">
+            <div class="recipe">
+              <div class="image_wrapper">
+                <%= link_to location do %>
+                  <%= image_tag location.images[0].url %>
+                <% end %>
+              </div>
+              <div id="name">
+                <h2>
+                  <%= link_to location.name, location %>
+                </h2>
+              </div>
+              <div id="description">
+                <p>
+                  <%= truncate(location.description, length: 900)%> <small><%=link_to 'click to see more', location_path(location)%></small>
+                </p>
+              </div>
+              <hr>
+              <div id="address">
+                <h2>
+                  <%=link_to location.address, "https://www.google.com.au/maps/place/#{location.address}/" %>
+                </h2>
+              </div>
+              <% if user_signed_in? && current_user.admin? %>
+              <div>
+                <%= link_to 'Edit', edit_location_path(location), class:"btn btn-warning" %>
+                <%= link_to 'Destroy', location, method: :delete, data: { confirm: 'Are you sure?' }, class:"btn btn-danger" %>
+              </div>
               <% end %>
-            </div>
-            <div id="name">
-              <h2>
-                <%= link_to location.name, location %>
-              </h2>
-            </div>
-            <div id="description">
-              <p>
-                <%= truncate(location.description, length: 900)%> <small><%=link_to 'click to see more', location_path(location)%></small>
-              </p>
-            </div>
-            <hr>
-            <div id="address">
-              <h2>
-                <%=link_to location.address, "https://www.google.com.au/maps/place/#{location.address}/" %>
-              </h2>
-            </div>
-            <% if user_signed_in? && current_user.admin? %>
-            <div>
-              <%= link_to 'Edit', edit_location_path(location), class:"btn btn-warning" %>
-              <%= link_to 'Destroy', location, method: :delete, data: { confirm: 'Are you sure?' }, class:"btn btn-danger" %>
-            </div>
-            <% end %>
           </div>
         </div>
       <% end %>
+    <% end %>
+    <% end %>
     </div>
   <% end %>
 </div>

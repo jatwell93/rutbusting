@@ -17,8 +17,8 @@ $light-blue: #3DACDD;
 $green: #6dcd9a;
 $red: #DB6161;
 $white: #fff;
-$light-grey: #E0E0E0;
-$darker-grey: #C0C0C0;
+$light-grey: #f95165;
+$darker-grey: #f95165;
 
 $social-size: 1.2em;
 $social-width: 20%;
@@ -360,7 +360,7 @@ nav.share iframe {
 		font-weight: bold;
 		line-height: 1.5;
 		a {
-			color: $red;
+			color: rgb(0, 35, 85);
 		}
 	}
 }
@@ -456,3 +456,17 @@ a.skip:hover {
   -moz-box-shadow: rgba(133,133,133,0.1) 0 0 5px 2px,rgba(133,133,133,0.3) 0 0 2px;
   box-shadow: rgba(133,133,133,0.1) 0 0 5px 2px,rgba(133,133,133,0.3) 0 0 2px;
 }
+#masonry-container {
+  background: #FFF;
+  padding: 5px;
+  margin-bottom: 20px;
+  border-radius: 5px;
+  clear: both;
+  -webkit-border-radius: 5px;
+     -moz-border-radius: 5px;
+          border-radius: 5px;
+}
+.centered { margin: 0 auto; }
+.clearfix:before, .clearfix:after { content: ""; display: table; }
+.clearfix:after { clear: both; }
+.clearfix { zoom: 1; }

@@ -17,6 +17,16 @@
 //= require bootstrap-sprockets
 //= require thredded
 //= require masonry/masonry.min
+//= require masonry/modernizr-transitions
 //= require turbolinks
 //= require_tree .
 
+$(function(){
+  $('#masonry-container').masonry({
+    itemSelector: '.box',
+    columnWidth: 200,
+    isAnimated: !Modernizr.csstransitions,
+    isFitWidth: true
+  });
+
+});
