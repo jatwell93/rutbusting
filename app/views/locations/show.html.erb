@@ -120,7 +120,7 @@
   <hr>
     <% @random_location.each do |location| %>
       <div class="row show-img">
-        <div class="image_wrapper hidden-xs-down"><%=image_tag location.image %></div>
+        <div class="image_wrapper hidden-xs-down"><%=image_tag location.images[0] %></div>
         <%= link_to location.name, location %></td>
         <%= truncate(location.description, length: 150)%> <small><%=link_to 'click to see more', location_path(location)%></small></td>
       </div>

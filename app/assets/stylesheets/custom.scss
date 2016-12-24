@@ -393,8 +393,11 @@ nav.share iframe {
   padding: 10px;
 }
 #address {
-  background: $light-grey;
+  background: #001845;
   padding: 10px;
+    a { 
+    color:$light-grey!important;
+  }
 }
 
 /* Media Queries */
