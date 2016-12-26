@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20161220075442) do
+ActiveRecord::Schema.define(version: 20161226005541) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -69,7 +69,7 @@ ActiveRecord::Schema.define(version: 20161220075442) do
 
   create_table "thredded_categories", force: :cascade do |t|
     t.integer  "messageboard_id",             null: false
-    t.string   "name",            limit: 191, null: false
+    t.string   "first_name",      limit: 191, null: false
     t.string   "description",     limit: 255
     t.datetime "created_at",                  null: false
     t.datetime "updated_at",                  null: false
