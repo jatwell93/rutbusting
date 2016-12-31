@@ -1,12 +1,17 @@
 Rails.application.routes.draw do
   
-mount Thredded::Engine => '/forum'
+  mount Thredded::Engine => '/forum'
+
   resources :tasks do
     post :update_row_order, on: :collection
   end
-
+  
+  resources :conversations do
+    resources :messages
+  end
+  
   resources :post_attachments
-  resources :post_attachments
+  
   devise_for :users
   resources :locations do 
     collection do
@@ -21,5 +26,7 @@ mount Thredded::Engine => '/forum'
   get '/faq', to: 'pages#faq'
   get "sitemap" => "sitemap#show", format: :xml, as: :sitemap
   get "sitemap/users" => "sitemap#index"
+  get 'users', to: 'users#index'  
+  
 
 end

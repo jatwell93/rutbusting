@@ -31,6 +31,8 @@ gem 'dropzonejs-rails'
 gem 'sortable-table', github: 'caselle/sortable-table'
 gem 'ranked-model'
 gem 'jquery-ui-rails'
+gem 'private_pub'
+gem 'thin'
 
 group :development, :test do
   gem 'byebug'

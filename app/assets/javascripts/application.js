@@ -18,15 +18,8 @@
 //= require thredded
 //= require masonry/masonry.min
 //= require masonry/modernizr-transitions
+//= require chat
+//= require user
+//= require private_pub
 //= require turbolinks
 //= require_tree .
-
-$(function(){
-  $('#masonry-container').masonry({
-    itemSelector: '.box',
-    columnWidth: 200,
-    isAnimated: !Modernizr.csstransitions,
-    isFitWidth: true
-  });
-
-});
