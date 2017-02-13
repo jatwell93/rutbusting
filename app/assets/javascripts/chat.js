@@ -223,7 +223,7 @@ var ready = function () {
                     }
                 }
 
-                newCookie = newCookie.slice(0, -1)
+                newCookie = newCookie.slice(0, -1);
 
 
                 $.cookie('chatbox_minimized', newCookie);
@@ -248,7 +248,7 @@ var ready = function () {
 
 
 
-    }
+    };
 
 
     /**
@@ -304,7 +304,7 @@ var ready = function () {
     };
 
 
-}
+};
 
 $(document).ready(ready);
 $(document).on("page:load", ready);
